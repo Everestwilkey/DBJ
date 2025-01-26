@@ -1,17 +1,18 @@
 import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
-  let totalelement = document.querySelector('.cart-footer')
-  let totalTextElement = document.querySelector('.cart-total')
+  let totalelement = document.querySelector(".cart-footer")
+  let totalTextElement = document.querySelector(".cart-total")
   const cartItems = getLocalStorage("so-cart");
   // checks if there is any items in the cart if not will not display the total
-  if(cartItems == 0){
+  if(!cartItems == 0){
     //hides the total element from the page
     totalelement.classList.add("hidden");
+    return
 
   }
   // will display the total for the cart if there are any items
-  else{
+  else {
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   // sets the total for the cart 
   let total = setcartTotal(cartItems)
