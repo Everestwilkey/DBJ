@@ -1,7 +1,7 @@
 import { setLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 // This get the items in the local storage for what ever was in the cart already
-function getCart(key) {
+export function getCart(key) {
   let retrievedList = []
   const storedListString = localStorage.getItem(key);
   console.log(storedListString)
