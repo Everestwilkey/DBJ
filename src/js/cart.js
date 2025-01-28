@@ -5,7 +5,7 @@ function renderCartContents() {
   let totalTextElement = document.querySelector(".cart-total")
   const cartItems = getLocalStorage("so-cart");
   // checks if there is any items in the cart if not will not display the total
-  if (cartItems == 0) {
+  if (cartItems == 0 || !cartItems) {
     //hides the total element from the page
     totalelement.classList.add("hidden");
     return
