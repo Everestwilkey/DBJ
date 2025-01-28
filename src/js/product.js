@@ -40,3 +40,39 @@ await renderProductPage(".productPage")
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
+
+
+/*
+For the cart number to pop up
+*/
+// Select the "Add to Cart" button element
+const button = document.getElementById("addToCart");
+
+// Initialize the counter for the number of times the button is clicked
+let count = 0;
+
+// Add a click event listener to the button
+button.addEventListener("click", () => {
+  // Increment the counter each time the button is clicked
+  count++;
+
+    // Check if the <span> already exists
+    let countSpan = button.querySelector(".cart-count");
+
+    if (!countSpan) {
+      // Dynamically create the <span> and add it to the button
+      countSpan = document.createElement("span");
+      countSpan.className = "cart-count";
+      button.appendChild(countSpan);
+    }
+
+    // Update the count and trigger the animation
+    countSpan.textContent = count;
+
+    // Reset and reapply the animation for the pop effect
+    countSpan.style.animation = "none"; // Reset animation
+    setTimeout(() => {
+      countSpan.style.animation = ""; // Reapply animation
+    }, 10);
+  });
+  
