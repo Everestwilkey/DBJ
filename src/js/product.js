@@ -2,9 +2,11 @@ import { setLocalStorage, getParam } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 import { renderProductPage } from "./productDetails.mjs";
 // This get the items in the local storage for what ever was in the cart already
+week-3-team-ew
 const productid = getParam("product")
 console.log(productid)
 function getCart(key) {
+
   let retrievedList = []
   const storedListString = localStorage.getItem(key);
   console.log(storedListString)
