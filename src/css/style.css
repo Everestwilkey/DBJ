@@ -206,7 +206,7 @@ button {
 /* begining of Add animation when add items to cart */
 /*------------------------------------------------*/
 .product-detail__add button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -256,9 +256,27 @@ button {
 /* end of Add animation when add items to cart */
 /*----------------------------------------------*/
 
+/* Cart open animation */
+@keyframes cartOpen {
+  0% {
+    transform: scale(1);
+    fill: black;
+  } /* Normal size */
+  50% {
+    transform: scale(2) rotate(360deg);
+    fill: burlywood;
+  } /* Enlarges slightly and tilts */
+  100% {
+    transform: scale(1);
+    fill: black;
+  } /* Returns to normal */
+}
+.cart-open {
+  animation: cartOpen 1s ease-in-out;
+}
 
-.hidden{
-  display: none
+.hidden {
+  display: none;
 }
 
 @media screen and (min-width: 500px) {
