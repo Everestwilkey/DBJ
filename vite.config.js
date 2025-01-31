@@ -4,8 +4,8 @@ import { svelte } from "@sveltejs/vite-plugin-svelte";
 
 
 export default defineConfig({
-  root: "src/",
   plugins: [svelte()],
+  root: "src/",
   build: {
     outDir: "../dist",
     rollupOptions: {
