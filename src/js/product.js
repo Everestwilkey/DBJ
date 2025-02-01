@@ -103,4 +103,4 @@ For the cart number to pop up
   });
 }
 
-document.addEventListener("DOMContentLoaded", updateCartCount);
+// document.addEventListener("DOMContentLoaded", updateCartCount);
