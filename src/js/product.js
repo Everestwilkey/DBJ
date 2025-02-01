@@ -1,6 +1,12 @@
 import { setLocalStorage, getParam } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 import { renderProductPage } from "./productDetails.mjs";
+// import { updateCartCount } from "./cart.js";
+/*when i try to import this ☝️☝️ in the items in the card will disappear
+and cause error. i am not sure why
+*/
+
+
 // This get the items in the local storage for what ever was in the cart already
 const productid = getParam("product");
 console.log(productid);
@@ -25,12 +31,16 @@ function addProductToCart(product) {
   retrievedList.push(product);
   // Save the new list to local storage and overwrite the old one
   setLocalStorage("so-cart", retrievedList);
+
+    // updateCartCount();
 }
 // add to cart button event handler
 async function addToCartHandler(e) {
   const product = await findProductById(e.target.dataset.id);
   addProductToCart(product);
   animateCartIcon(); // Call animation function
+
+
 }
 // Function to animate the backpack opening
 function animateCartIcon() {
@@ -92,3 +102,5 @@ For the cart number to pop up
     }, 10);
   });
 }
+
+document.addEventListener("DOMContentLoaded", updateCartCount);
