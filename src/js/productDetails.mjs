@@ -2,7 +2,7 @@ import { findProductById } from "./productData.mjs";
 import { getParam } from "./utils.mjs";
 
 function productTemplate(item) {
-    return `<section class="product-detail">
+  return `<section class="product-detail">
         <!-- this is the title -->
         <h3>${item.Brand.Name}</h3> 
         <!-- this is the name -->
@@ -27,12 +27,27 @@ function productTemplate(item) {
             <!-- add data id -->
           <button id="addToCart" data-id="${item.Id}">Add to Cart</button>
         </div>
-      </section>`
+      </section>`;
 }
 export async function renderProductPage(elementSelection) {
-    const productPage = document.querySelector(elementSelection)
-    const productValue = getParam("product")
-    const item = await findProductById(productValue)
-    productPage.innerHTML += productTemplate(item);
+  // Select the element where the product page content should go
+  const productPage = document.querySelector(elementSelection);
+  // Get the product ID from the URL parameters
+  const productValue = getParam("product");
 
+  try {
+    // Attempt to fetch the product details
+    const item = await findProductById(productValue);
+    // If product exists, render the product template
+    productPage.innerHTML += productTemplate(item);
+  } catch (error) {
+    // Log the error message in the console
+    console.error(error.message);
+    productPage.innerHTML = `<div class ="error-message">
+                <h2> Product Not Found</h2> 
+                <p> Sorry, the product you are looking for does not exist.</p>
+                <a href="/" class= "btn btn-primary"> Return to Home</a>
+                </div>
+                `;
+  }
 }

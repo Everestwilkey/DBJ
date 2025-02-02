@@ -48,11 +48,20 @@ function animateCartIcon() {
 }
 
 async function init() {
-  await renderProductPage(".productPage");
-  document
-    .getElementById("addToCart")
-    .addEventListener("click", addToCartHandler);
-  setupCartCounter();
+  try {
+    // load the product page content
+    await renderProductPage(".productPage");
+
+    // find the add to cart button after rendering the page
+    const addToCartButton = document.getElementById("addToCart");
+    if (addToCartButton) {
+      addToCartButton.addEventListener("click", addToCartHandler);
+      setupCartCounter();
+    }
+  } catch (error) {
+    // Log the error to the console for debugging
+    console.error("Error initializing product page:", error.message);
+  }
 }
 init();
 // add listener to Add to Cart button
