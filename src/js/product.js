@@ -3,10 +3,6 @@ import { findProductById } from "./productData.mjs";
 import { renderProductPage } from "./productDetails.mjs";
 import { updateCartCount } from "./cartCount";
 
-/*when i try to import this ☝️☝️ in the items in the card will disappear
-and cause error. i am not sure why
-*/
-
 
 // This get the items in the local storage for what ever was in the cart already
 const productid = getParam("product");
