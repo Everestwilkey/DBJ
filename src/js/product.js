@@ -1,7 +1,8 @@
 import { setLocalStorage, getParam } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 import { renderProductPage } from "./productDetails.mjs";
-// import { updateCartCount } from "./cart.js";
+import { updateCartCount } from "./cartCount";
+
 /*when i try to import this ☝️☝️ in the items in the card will disappear
 and cause error. i am not sure why
 */
@@ -32,7 +33,7 @@ function addProductToCart(product) {
   // Save the new list to local storage and overwrite the old one
   setLocalStorage("so-cart", retrievedList);
 
-    // updateCartCount();
+  updateCartCount
 }
 // add to cart button event handler
 async function addToCartHandler(e) {
