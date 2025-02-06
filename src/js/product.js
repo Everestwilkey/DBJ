@@ -33,7 +33,7 @@ function addProductToCart(product) {
   // Save the new list to local storage and overwrite the old one
   setLocalStorage("so-cart", retrievedList);
 
-  updateCartCount
+  updateCartCount();
 }
 // add to cart button event handler
 async function addToCartHandler(e) {
