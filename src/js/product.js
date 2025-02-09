@@ -25,6 +25,8 @@ function getCart(key) {
 function addProductToCart(product) {
   let retrievedList = getCart("so-cart");
   // Add the product to the list of products in the cart
+  const existsingProduct = retrievedList.find(item => item.id === product.id)
+  if(retrievedList)
   retrievedList.push(product);
   // Save the new list to local storage and overwrite the old one
   setLocalStorage("so-cart", retrievedList);
