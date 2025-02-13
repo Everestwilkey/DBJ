@@ -1,4 +1,7 @@
-
+<script>
+    import { cartState } from "./state.svelte.js";
+    //export let cartCount = 0;
+  </script>
 <div class="logo">
         <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
         <a href="index.html"> Sleep<span class="highlight">Outside</span></a>
@@ -29,6 +32,7 @@
             <!-- <text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Natalia Woodroffe</text>
             <text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text> -->
         </svg>
-        <span id="cart-count" class="badge">0</span>
+        <!-- <span id="cart-count" class="badge">0</span> -->
+        <sup>{cartState.count > 0 ? cartState.count : ""}</sup>
         </a>
 </div>
