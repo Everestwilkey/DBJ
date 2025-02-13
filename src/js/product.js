@@ -3,10 +3,6 @@ import { findProductById } from "./productData.mjs";
 import { renderProductPage } from "./productDetails.mjs";
 import { updateCartCount } from "./cartCount";
 
-/*when i try to import this ☝️☝️ in the items in the card will disappear
-and cause error. i am not sure why
-*/
-
 
 // This get the items in the local storage for what ever was in the cart already
 const productid = getParam("product");
@@ -29,11 +25,13 @@ function getCart(key) {
 function addProductToCart(product) {
   let retrievedList = getCart("so-cart");
   // Add the product to the list of products in the cart
+  const existsingProduct = retrievedList.find(item => item.id === product.id)
+  if(retrievedList)
   retrievedList.push(product);
   // Save the new list to local storage and overwrite the old one
   setLocalStorage("so-cart", retrievedList);
 
-  updateCartCount
+  updateCartCount();
 }
 // add to cart button event handler
 async function addToCartHandler(e) {

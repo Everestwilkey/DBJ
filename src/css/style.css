@@ -43,6 +43,7 @@ header {
   width: 60px;
   height: 60px;
 }
+
 .logo a {
   text-decoration: none;
   color: var(--font-body);
@@ -119,7 +120,34 @@ button {
   max-width: 600px;
   margin: auto;
 }
-.products {
+
+.search {
+  width: fit-content;
+  display: flex;
+  justify-content: flex-start;
+  border: 2px solid black;
+  border-radius: 6px;
+  margin: 0 auto;
+}
+.search img {
+  width: 20px;
+  cursor: pointer;
+}
+
+button {
+  padding: 10px;
+  background-color: white;
+  border: 2px solid black;
+  font-family: var(--primary-color);
+}
+
+#find-a-product {
+  min-width: 500px;
+  padding: 5px;
+  border: none;
+}
+
+#products {
   padding: 0.5em;
 }
 .product-list {
@@ -140,6 +168,8 @@ button {
   padding: 0.5em;
   border: 1px solid var(--light-grey);
   max-width: 250px;
+  list-style: none;
+  
 }
 .product-card h2,
 .product-card h3,
@@ -382,6 +412,9 @@ button {
   .mission {
     font-size: 1.2em;
   }
+  #find-a-recipe {
+    min-width: 1200px;
+  }
   .cart-card {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
@@ -391,4 +424,22 @@ button {
 footer {
   font-size: var(--small-font);
   padding: 1em;
+}
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.quantity-controls button {
+  padding: 4px 8px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+}
+.quantity-controls button:hover {
+  background: #f0f0f0;
+}
+.remove-item {
+  color: #ff0000;
 }
