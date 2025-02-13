@@ -256,7 +256,6 @@ button {
 /* end of Add animation when add items to cart */
 /*----------------------------------------------*/
 
-
 /*----------------------------------------------*/
 /*backpack show number of items in cart*/
 /*----------------------------------------------*/
@@ -280,7 +279,7 @@ button {
   display: none; /* Initially hidden */
 }
 /*----------------------------------------------*/
-/* backpack show number of items in cart*/ 
+/* backpack show number of items in cart*/
 /*----------------------------------------------*/
 
 /* alerts styles*/
@@ -302,12 +301,12 @@ button {
 .alert-list p {
   margin: 40px 0;
   padding: 60px; /* Bigger padding */
-  font-size: 20px; 
+  font-size: 20px;
   text-align: center;
-  border-radius: 15px; 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, opacity 0.3s ease;
-  width: 100%; 
+  width: 100%;
   position: relative;
 }
 
@@ -347,9 +346,7 @@ button {
     transform: translateY(0);
   }
 }
- /* End alerts styles*/
-
-
+/* End alerts styles*/
 
 /* Cart open animation */
 @keyframes cartOpen {
@@ -373,6 +370,31 @@ button {
 .hidden {
   display: none;
 }
+
+/* Styles for Discount Detail Page */
+.discount-label {
+  color: #d9534f;
+  font-weight: bold;
+  background: #ffe6e6;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: grey;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.final-price {
+  color: #28a745;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+/* End Discont Detail Page */
 
 @media screen and (min-width: 500px) {
   body {

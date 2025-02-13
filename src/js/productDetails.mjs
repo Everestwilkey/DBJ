@@ -2,6 +2,25 @@ import { findProductById } from "./productData.mjs";
 import { getParam } from "./utils.mjs";
 
 function productTemplate(item) {
+  // Ensure ListPrice is available
+  const originalPrice = parseFloat(item.ListPrice);
+  const discountedPrice = parseFloat(item.FinalPrice);
+
+  let discountText = "";
+
+  if (originalPrice > discountedPrice) {
+    const discountAmount = originalPrice - discountedPrice;
+    const discountPercentage = ((discountAmount / originalPrice) * 100).toFixed(
+      0
+    );
+
+    discountText = `
+       <p class="discount-label">Save ${discountPercentage}% - You save $${discountAmount.toFixed(
+      2
+    )}</p>
+     `;
+  }
+
   return `<section class="product-detail">
         <!-- this is the title -->
         <h3>${item.Brand.Name}</h3> 
@@ -30,24 +49,26 @@ function productTemplate(item) {
       </section>`;
 }
 export async function renderProductPage(elementSelection) {
-  // Select the element where the product page content should go
   const productPage = document.querySelector(elementSelection);
-  // Get the product ID from the URL parameters
   const productValue = getParam("product");
 
   try {
-    // Attempt to fetch the product details
     const item = await findProductById(productValue);
-    // If product exists, render the product template
+
+    // Debugging: Log fetched product details
+    console.log("Fetched Product Data:", item);
+
+    if (item.ListPrice === undefined || item.FinalPrice === undefined) {
+      console.warn("ListPrice or FinalPrice is missing in product data!");
+    }
+
     productPage.innerHTML += productTemplate(item);
   } catch (error) {
-    // Log the error message in the console
     console.error(error.message);
-    productPage.innerHTML = `<div class ="error-message">
+    productPage.innerHTML = `<div class="error-message">
                 <h2> Product Not Found</h2> 
                 <p> Sorry, the product you are looking for does not exist.</p>
-                <a href="/" class= "btn btn-primary"> Return to Home</a>
-                </div>
-                `;
+                <a href="/" class="btn btn-primary"> Return to Home</a>
+                </div>`;
   }
 }
