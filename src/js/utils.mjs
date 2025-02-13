@@ -1,4 +1,7 @@
 // wrapper for querySelector...returns matching element
+import { mount } from "svelte";
+import MainHeader from "./components/MainHeader.svelte";
+import MainFooter from "./components/MainFooter.svelte";
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
 }
@@ -25,7 +28,15 @@ export function getParam(key) {
   const queryString = window.location.search;
   console.log(queryString);
   const urlParams = new URLSearchParams(queryString);
-  const value = urlParams.get(key)
-  return value
+  const value = urlParams.get(key);
+  return value;
+}
 
+export function renderHeaderFooter() {
+  const header = mount(MainHeader, {
+    target: document.querySelector("#main-header"),
+  });
+  const footer = mount(MainFooter, {
+    target: document.querySelector("#main-footer"),
+  });
 }
