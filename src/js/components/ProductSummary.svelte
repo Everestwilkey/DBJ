@@ -14,9 +14,9 @@
 </script>
 
 <section class="product-card">
-    <a href="product_pages/index.html?product={product.Id}">
+    <a href="/product_pages/index.html?product={product.Id}">
         <div class="image-container">
-            <img src="{product.Image}" alt="{product.Name}" />
+            <img src="{product.Images.PrimarySmall}" alt="{product.Name}" />
             {#if hasDiscount}
                 <div class="discount-badge">{discount}% OFF</div>
             {/if}

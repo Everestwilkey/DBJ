@@ -11,7 +11,7 @@ function productTemplate(item) {
         <img
           class="divider"
          
-          src="${item.Image}"
+          src="${item.Images.PrimaryLarge}"
           alt="${item.NameWithoutBrand}"
         />
 <!-- this is the price -->
@@ -38,6 +38,7 @@ export async function renderProductPage(elementSelection) {
   try {
     // Attempt to fetch the product details
     const item = await findProductById(productValue);
+    console.log(item)
     // If product exists, render the product template
     productPage.innerHTML += productTemplate(item);
   } catch (error) {
