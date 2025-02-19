@@ -16,7 +16,7 @@ function productTemplate(item) {
         
         <div class="product-img-container">
         <!-- this is the tent image -->
-        <img class="divider" src="${item.Image}" alt="${
+        <img class="divider" src="${item.Images.PrimaryLarge}" alt="${
     item.NameWithoutBrand
   }" />
   ${hasDiscount ? `<span class="discountd-badge">${discount}% OFF</span>` : ""}
@@ -56,6 +56,7 @@ export async function renderProductPage(elementSelection) {
   try {
     // Attempt to fetch the product details
     const item = await findProductById(productValue);
+    console.log(item);
     // If product exists, render the product template
     productPage.innerHTML += productTemplate(item);
   } catch (error) {
