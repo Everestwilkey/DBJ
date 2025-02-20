@@ -1,5 +1,5 @@
 <script>
-    export let product;
+    let {product} = $props();
 
     // Check if the ListPrice is greater than FinalPrice to determine if there's a discount
     let hasDiscount = product.ListPrice && product.ListPrice > product.FinalPrice;
