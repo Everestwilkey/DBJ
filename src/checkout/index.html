@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Sleep Outside | Checkout</title>
-
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css">
   </head>
 
   <body>
@@ -60,6 +59,51 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
       </section>
+      <form action="onsubmit">
+
+        <fieldset>
+          <legend>Shipping</legend>
+          <label for="fname">First Name
+            <input type="text" id="fname" name="fname" required>
+          </label>
+          <label for="lname">Last Name
+            <input type="text" id="lname" name="lname" required>
+          </label>
+          <label for="street">Street
+            <input type="text" id="street" name="street" required>
+          </label>
+          <label for="city">City
+            <input type="text" id="city" name="city" required>
+          </label>
+          <label for="state">State
+            <input type="text" id="state" name="state" required>
+          </label>
+          <label for="zip">Zip
+            <input type="text" id="zip" name="zip" required>
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Payment</legend>
+          <label for="cardNumber">Card number
+            <input type="text" id="cardNumber" name="cardNumber" required>
+          </label>
+          <label for="expiration">Expiration
+            <input type="text" id="expiration" name="expiration" required>
+          </label>
+          <label for="code">Code
+            <input type="text" id="code" name="code" required>
+          </label>
+        </fieldset>
+        <h3></h3>
+        <fieldset>
+          <legend>Order Summary</legend>
+          <p>Item Subtotal()</p>
+          <p>Shipping Estimate</p>
+          <p>Tax</p>
+          <strong>Order Total</strong>
+        </fieldset>
+        <button>Submit</button>
+      </form>
     </main>
 
     <footer>&copy;NOT a real business</footer>
