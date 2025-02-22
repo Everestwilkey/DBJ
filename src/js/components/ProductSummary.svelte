@@ -1,12 +1,12 @@
 <script>
     let {product} = $props();
 
-    // Check if the ListPrice is greater than FinalPrice to determine if there's a discount
-    let hasDiscount = product.ListPrice && product.ListPrice > product.FinalPrice;
+    // Check if the SuggestedRetailPrice is greater than FinalPrice to determine if there's a discount
+    let hasDiscount = product.SuggestedRetailPrice && product.SuggestedRetailPrice > product.FinalPrice;
 
     // Calculate the discount percentage if there is a discount
     let discount = hasDiscount
-        ? Math.round(((product.ListPrice - product.FinalPrice) / product.ListPrice) * 100)
+        ? Math.round(((product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice) * 100)
         : 0;
 
     // Log the discount to the console for debugging
@@ -27,7 +27,7 @@
         
         <!-- Show original price if there's a discount -->
         {#if hasDiscount}
-            <p class="original-price">Was: <span>${product.ListPrice}</span></p>
+            <p class="original-price">Was: <span>${product.SuggestedRetailPrice}</span></p>
         {/if}
     </a>
 </section>
