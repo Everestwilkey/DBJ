@@ -1,5 +1,5 @@
 // wrapper for querySelector...returns matching element
-import { mount } from "svelte";
+import { mount } from "../js/components/CheckoutForm.svelte";
 import MainHeader from "./components/MainHeader.svelte";
 import MainFooter from "./components/MainFooter.svelte";
 export function qs(selector, parent = document) {
@@ -39,4 +39,13 @@ export function renderHeaderFooter() {
   const footer = mount(MainFooter, {
     target: document.querySelector("#main-footer"),
   });
+}
+
+export function formDataToJSON(formElement) {
+  const formData = new FormData(formElement), convertedJSON = {};
+
+  formData.forEach(function (value, key) {
+    convertedJSON[key] = value;
+  });
+  return convertedJSON;
 }

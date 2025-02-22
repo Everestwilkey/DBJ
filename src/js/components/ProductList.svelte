@@ -1,11 +1,11 @@
 <script>
     import ProductSummary from "./ProductSummary.svelte";
-    import { getData } from "../productData.mjs";
+    import { getProductsByCategory } from "../productData.mjs";
     // this is how we make a prop in svelte
     let {category} = $props();
     // if you are looking at this thinking that's strange to just stop with a promise
     // you would be right.  This will make more sense in a bit...stay tuned.
-    let promise = getData(category);
+    let promise = getProductsByCategory(category);
 
      // Function to limit the results to only 4 tents
      function getTopTents(products) {

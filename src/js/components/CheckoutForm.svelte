@@ -1,5 +1,6 @@
 <script>
-    import { getLocalStorage } from "../utils.mjs";
+    import { getLocalStorage, formDataToJSON } from "../utils.mjs";
+    import { checkout } from "../externalServices.mjs"
     import { onMount } from "svelte";
 // props
     let {key = ""} = $props();
@@ -31,8 +32,32 @@
         ).toFixed(2);
     };
 
+    function packageItems(items) {
+        const simplifiedItems = items.map((item) => { 
+            console.log(item);
+            return {
+                id: item.Id,
+                price: item.FinalPrice,
+                name: item.Name,
+                quantity: 1,
+            };
+        });
+        return simplifiedItems;
+    }
+
+    function handleSumbit(e) {
+        const json = formDataToJSON(this);
+        json.orderData = new Date();
+        json.orderTotal = orderTotal;
+        json.tax = tax;
+        json.shipping = shipping;
+        json.items = packageItems(list);
+        console.log(json);
+
+    }
     // initial setup
     onMount(init);
+
 </script>
 
 <fieldset class="checkout-summary">
