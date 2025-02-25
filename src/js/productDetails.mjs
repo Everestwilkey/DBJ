@@ -3,9 +3,14 @@ import { getParam } from "./utils.mjs";
 
 function productTemplate(item) {
   // Check if there's a discount
-  let hasDiscount = item.ListPrice && item.ListPrice > item.FinalPrice;
+  let hasDiscount =
+    item.SuggestedRetailPrice && item.SuggestedRetailPrice > item.FinalPrice;
   let discount = hasDiscount
-    ? Math.round(((item.ListPrice - item.FinalPrice) / item.ListPrice) * 100)
+    ? Math.round(
+        ((item.SuggestedRetailPrice - item.FinalPrice) /
+          item.SuggestedRetailPrice) *
+          100
+      )
     : 0;
 
   return `<section class="product-detail">
@@ -26,7 +31,7 @@ function productTemplate(item) {
         <p class="final-price">Now: $${item.FinalPrice}</p> 
         ${
           hasDiscount
-            ? `<span class="original-price">Was:<s>$${item.ListPrice}</s></span>`
+            ? `<span class="original-price">Was:<s>$${item.SuggestedRetailPrice}</s></span>`
             : ""
         } 
         
