@@ -2,26 +2,43 @@ import { findProductById } from "./productData.mjs";
 import { getParam } from "./utils.mjs";
 
 function productTemplate(item) {
+  // Check if there's a discount
+  let hasDiscount = item.ListPrice && item.ListPrice > item.FinalPrice;
+  let discount = hasDiscount
+    ? Math.round(((item.ListPrice - item.FinalPrice) / item.ListPrice) * 100)
+    : 0;
+
   return `<section class="product-detail">
         <!-- this is the title -->
         <h3>${item.Brand.Name}</h3> 
         <!-- this is the name -->
         <h2 class="divider">${item.Name}</h2>
-<!-- this this the tent image -->
-        <img
-          class="divider"
-         
-          src="${item.Images.PrimaryLarge}"
-          alt="${item.NameWithoutBrand}"
-        />
-<!-- this is the price -->
-        <p class="product-card__price">${item.FinalPrice}</p>
-<!-- product product__color -->
+        
+        <div class="product-img-container">
+        <!-- this is the tent image -->
+        <img class="divider" src="${item.Images.PrimaryLarge}" alt="${
+    item.NameWithoutBrand
+  }" />
+  ${hasDiscount ? `<span class="discountd-badge">${discount}% OFF</span>` : ""}
+   </div>     
+        <!-- this is the price -->
+        <div class="product-card__price">
+        <p class="final-price">Now: $${item.FinalPrice}</p> 
+        ${
+          hasDiscount
+            ? `<span class="original-price">Was:<s>$${item.ListPrice}</s></span>`
+            : ""
+        } 
+        
+       
+        </div>
+        
+        
+        <!-- product product__color -->
         <p class="product__color">${item.Colors[0]?.ColorName}</p>
-<!-- description -->
-        <p class="product__description">
-          ${item.DescriptionHtmlSimple}
-        </p>
+        
+        <!-- description -->
+        <p class="product__description">${item.DescriptionHtmlSimple}</p>
 
         <div class="product-detail__add">
             <!-- add data id -->
@@ -29,6 +46,7 @@ function productTemplate(item) {
         </div>
       </section>`;
 }
+
 export async function renderProductPage(elementSelection) {
   // Select the element where the product page content should go
   const productPage = document.querySelector(elementSelection);
@@ -38,7 +56,7 @@ export async function renderProductPage(elementSelection) {
   try {
     // Attempt to fetch the product details
     const item = await findProductById(productValue);
-    console.log(item)
+    console.log(item);
     // If product exists, render the product template
     productPage.innerHTML += productTemplate(item);
   } catch (error) {
