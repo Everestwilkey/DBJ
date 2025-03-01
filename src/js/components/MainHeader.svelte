@@ -34,7 +34,7 @@
             <text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text> -->
 
         </svg>
-        <!-- <span id="cart-count" class="badge">0</span> -->
+        <span id="cart-count" class="badge">0</span>
         <sup>{cartState.count > 0 ? cartState.count : ""}</sup>
         </a>
 </div>

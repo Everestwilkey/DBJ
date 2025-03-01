@@ -1,6 +1,7 @@
 <script>
     // Import required components and functions
     import ProductSummary from "./ProductSummary.svelte";
+    import Breadcrumb from "./Breadcrumb.svelte";
     import { getData } from "../productData.mjs";
    
     // Get category from props and initialize reactive state variables
@@ -14,7 +15,7 @@
     // Function to limit display to only 4 products
     function getTopTents(products) {
         if (!Array.isArray(products)) return [];
-        return products.slice(0, 4);  // Return first 4 items
+        return products.slice(0, 8);  // Return first 4 items
     }
 
 
@@ -42,6 +43,10 @@
         products = data;
     });
 </script>
+
+
+<!-- Add breadcrumb at the top -->
+<Breadcrumb {category} productCount={products.length} />
 
 
 <!-- Display category title -->
