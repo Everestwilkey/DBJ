@@ -1,5 +1,5 @@
 <script>
-    let {product} = $props();
+   let {product} = $props();
 
     // Check if the SuggestedRetailPrice is greater than FinalPrice to determine if there's a discount
     let hasDiscount = product.SuggestedRetailPrice && product.SuggestedRetailPrice > product.FinalPrice;

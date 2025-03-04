@@ -484,13 +484,15 @@ footer {
 /* Newsletter */
 #newsletter-form {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: 10px;
   max-width: 300px;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   background: #f9f9f9;
+  margin: 30px auto;  /* Add space above and below, and center horizontally */
 }
 
 #newsletter-form input {
