@@ -69,7 +69,9 @@ function renderCartContents() {
         quantity: 1
       });
     }
+    setLocalStorage('so-cart',cartItems)
   });
+
 
   // Convert map to array of unique items with quantities
   const uniqueItems = Array.from(itemMap.values());
@@ -158,7 +160,7 @@ function cartItemTemplate(item, quantity) {
   return newItem;
 }
 
-function setcartTotal(products) {
+export function setcartTotal(products) {
   const total = products.reduce((sum, product) => 
     sum + parseFloat(product.ListPrice), 0
   );
