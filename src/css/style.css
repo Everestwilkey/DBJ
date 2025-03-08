@@ -513,3 +513,74 @@ footer {
 #newsletter-form button:hover {
   background: #0056b3;
 }
+
+/* Call to action */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 90%;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.register-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.register-button:hover {
+  background-color: #45a049;
+}
+
+#registration-cta h2 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+#registration-cta ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+#registration-cta li {
+  margin: 0.5rem 0;
+  font-size: 16px;
+}
