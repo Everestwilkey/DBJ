@@ -113,6 +113,10 @@ button {
 
 /* End cart icon styles */
 
+/* Start Image optimizer */
+
+/* end image optimizer */
+
 .mission {
   padding: 0 0.5em;
   /* margin: 0.5em 0; */
@@ -190,11 +194,23 @@ button {
   max-width: 500px;
   margin: auto;
 }
-
+/* Start fix image size based on size */
 .product-detail img {
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  .product-detail img {
+    width: 75%;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-detail img {
+    width: 50%;
+  }
+}
+/* end fix image size  */
 /* Start cart list card styles */
 .cart-card {
   display: grid;
@@ -492,7 +508,7 @@ footer {
   border: 1px solid #ccc;
   border-radius: 10px;
   background: #f9f9f9;
-  margin: 30px auto;  /* Add space above and below, and center horizontally */
+  margin: 30px auto; /* Add space above and below, and center horizontally */
 }
 
 #newsletter-form input {
@@ -553,7 +569,7 @@ footer {
 }
 
 .register-button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 12px 24px;
   border: none;
